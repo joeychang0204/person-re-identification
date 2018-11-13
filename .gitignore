@@ -2,6 +2,7 @@
 *.zip
 Market-1501-v15.09.15.zip
 *.jpg
+Log*
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
