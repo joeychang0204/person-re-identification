@@ -24,7 +24,7 @@ from reid.optim.sgd_caffe import SGD_caffe
 
 def get_data(name, split_id, data_dir,
              height, width, crop_height, crop_width, batch_size,
-             caffe_sampler=False,
+             erasing_p, caffe_sampler=False,
              workers=4):
 
     root = osp.join(data_dir, name)
@@ -33,14 +33,26 @@ def get_data(name, split_id, data_dir,
     num_classes = dataset.num_trainval_ids 
 
     # transforms
-    train_transformer = T.Compose([
+    if erasing_p>0:
+        train_transformer = T.Compose([
         T.RectScale(height, width),
 #        T.CenterCrop((crop_height, crop_width)),
         T.RandomHorizontalFlip(),
         T.ToTensor(),
         T.RGB_to_BGR(),
         T.NormalizeBy(255),
+        T.RandomErasing(probability = erasing_p, mean=[0.0, 0.0, 0.0]),
     ])
+    else:
+        train_transformer = T.Compose([
+            T.RectScale(height, width),
+#            T.CenterCrop((crop_height, crop_width)),
+            T.RandomHorizontalFlip(),
+            T.ToTensor(),
+            T.RGB_to_BGR(),
+            T.NormalizeBy(255),
+        ])
+
     test_transformer = T.Compose([
         T.RectScale(height, width),
 #        T.CenterCrop((crop_height, crop_width)),
@@ -88,7 +100,7 @@ def main(args):
         get_data(args.dataset, args.split, args.data_dir, args.height, \
                  args.width, args.crop_height, args.crop_width, args.batch_size, \
                  args.caffe_sampler, \
-                 args.workers)
+                 args.workers, args.erasing_p)
 
     # Create model
     valid_args = ['features', 'use_relu', 'dilation']
@@ -186,5 +198,6 @@ if __name__ == '__main__':
                         default=osp.join(working_dir, 'data'))
     parser.add_argument('--logs-dir', type=str, metavar='PATH',
                         default=osp.join(working_dir, 'logs'))
+    parser.add_argument('--erasing_p', default=0, type=float, help='Random Erasing probability, in [0,1]')
 
     main(parser.parse_args())
