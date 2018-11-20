@@ -34,6 +34,7 @@ def get_data(name, split_id, data_dir,
 
     # transforms
     if erasing_p>0:
+        print("hihihi")
         train_transformer = T.Compose([
         T.RectScale(height, width),
 #        T.CenterCrop((crop_height, crop_width)),
