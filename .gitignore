@@ -114,3 +114,4 @@ logs/
 ./data/*
 pretrained/*
 *txt
+data/*

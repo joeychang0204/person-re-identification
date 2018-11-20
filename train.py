@@ -99,8 +99,8 @@ def main(args):
     dataset, num_classes, train_loader, test_loader = \
         get_data(args.dataset, args.split, args.data_dir, args.height, \
                  args.width, args.crop_height, args.crop_width, args.batch_size, \
-                 args.caffe_sampler, \
-                 args.workers, args.erasing_p)
+                 args.erasing_p, args.caffe_sampler, \
+                 args.workers)
 
     # Create model
     valid_args = ['features', 'use_relu', 'dilation']
