@@ -4,8 +4,8 @@
 #SBATCH --get-user-env=L             #Replicate login environment
 
 ##NECESSARY JOB SPECIFICATIONS
-#SBATCH --job-name=Train_Market1501       #Set the job name to "JobExample5"
-#SBATCH --time=12:00:00              #Set the wall clock limit to 1hr and 30min
+#SBATCH --job-name=Train_Market1501_48hr_epoch400       #Set the job name to "JobExample5"
+#SBATCH --time=48:00:00              #Set the wall clock limit to 1hr and 30min
 #SBATCH --ntasks=28                   #Request 1 task
 #SBATCH --mem=32G                  #Request 2560MB (2.5GB) per node
 #SBATCH --output=Log_Train_Market1501.%j      #Send stdout/err to "Example5Out.[jobID]"
