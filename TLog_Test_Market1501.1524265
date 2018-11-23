@@ -1,0 +1,63 @@
+/scratch/user/joeychang0204/AI/625_Project/reid/feature_extraction/cnn.py:12: UserWarning: volatile was removed and now has no effect. Use `with torch.no_grad():` instead.
+  inputs = Variable(inputs, volatile=True)
+Set os.envirionments from paths...
+----------------------------------
+DUKEMTMC_DATA_ROOT $(pwd)/data/dukemtmc/raw/DukeMTMC-reID
+INCEPTION_V1_PRETRAINED pretrained/bvlc_googlenet.caffemodel.pth
+MARKET1501_DATA_ROOT $(pwd)/data/market1501/raw/Market-1501-v15.09.15
+CPM_PRETRAINED pretrained/pose_iter_440000.caffemodel.pth
+----------------------------------
+done!
+Files already downloaded and verified
+Market1501 dataset loaded
+  subset   | # ids | # images
+  ---------------------------
+  train    |   651 |    11126
+  val      |   100 |     1810
+  trainval |   751 |    12936
+  query    |   750 |     3368
+  gallery  |   751 |    15913
+=> Loaded checkpoint './logs/market1501/tmp/epoch_400.pth.tar'
+Extract Features: [10/386]	Time 0.861 (0.871)	Data 0.157 (0.164)	
+Extract Features: [20/386]	Time 0.838 (0.857)	Data 0.133 (0.152)	
+Extract Features: [30/386]	Time 0.851 (0.856)	Data 0.146 (0.150)	
+Extract Features: [40/386]	Time 0.879 (0.860)	Data 0.173 (0.154)	
+Extract Features: [50/386]	Time 0.871 (0.863)	Data 0.163 (0.157)	
+Extract Features: [60/386]	Time 0.876 (0.867)	Data 0.169 (0.162)	
+Extract Features: [70/386]	Time 0.873 (0.870)	Data 0.167 (0.164)	
+Extract Features: [80/386]	Time 0.900 (0.872)	Data 0.194 (0.166)	
+Extract Features: [90/386]	Time 0.900 (0.874)	Data 0.193 (0.168)	
+Extract Features: [100/386]	Time 0.916 (0.876)	Data 0.209 (0.170)	
+Extract Features: [110/386]	Time 0.883 (0.878)	Data 0.175 (0.172)	
+Extract Features: [120/386]	Time 0.871 (0.879)	Data 0.165 (0.173)	
+Extract Features: [130/386]	Time 0.900 (0.880)	Data 0.194 (0.174)	
+Extract Features: [140/386]	Time 0.902 (0.881)	Data 0.195 (0.175)	
+Extract Features: [150/386]	Time 0.899 (0.882)	Data 0.193 (0.176)	
+Extract Features: [160/386]	Time 0.887 (0.883)	Data 0.180 (0.177)	
+Extract Features: [170/386]	Time 0.887 (0.883)	Data 0.181 (0.177)	
+Extract Features: [180/386]	Time 0.892 (0.884)	Data 0.186 (0.178)	
+Extract Features: [190/386]	Time 0.895 (0.885)	Data 0.187 (0.178)	
+Extract Features: [200/386]	Time 0.892 (0.885)	Data 0.183 (0.179)	
+Extract Features: [210/386]	Time 0.881 (0.885)	Data 0.174 (0.179)	
+Extract Features: [220/386]	Time 0.906 (0.886)	Data 0.199 (0.179)	
+Extract Features: [230/386]	Time 0.879 (0.886)	Data 0.172 (0.180)	
+Extract Features: [240/386]	Time 0.892 (0.887)	Data 0.186 (0.180)	
+Extract Features: [250/386]	Time 0.899 (0.887)	Data 0.192 (0.181)	
+Extract Features: [260/386]	Time 0.882 (0.888)	Data 0.175 (0.181)	
+Extract Features: [270/386]	Time 0.907 (0.888)	Data 0.200 (0.181)	
+Extract Features: [280/386]	Time 0.905 (0.888)	Data 0.197 (0.182)	
+Extract Features: [290/386]	Time 0.881 (0.889)	Data 0.174 (0.182)	
+Extract Features: [300/386]	Time 0.893 (0.889)	Data 0.186 (0.182)	
+Extract Features: [310/386]	Time 0.888 (0.889)	Data 0.181 (0.182)	
+Extract Features: [320/386]	Time 0.890 (0.889)	Data 0.183 (0.182)	
+Extract Features: [330/386]	Time 0.906 (0.889)	Data 0.199 (0.182)	
+Extract Features: [340/386]	Time 0.881 (0.890)	Data 0.174 (0.183)	
+Extract Features: [350/386]	Time 0.892 (0.890)	Data 0.184 (0.183)	
+Extract Features: [360/386]	Time 0.883 (0.890)	Data 0.175 (0.183)	
+Extract Features: [370/386]	Time 0.893 (0.890)	Data 0.186 (0.183)	
+Extract Features: [380/386]	Time 0.887 (0.889)	Data 0.179 (0.182)	
+CMC Scores
+  top-1          92.5%
+  top-5          97.3%
+  top-10         98.4%
+ Mean AP: 81.6%
