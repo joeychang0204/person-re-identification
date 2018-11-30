@@ -8,6 +8,7 @@ from .evaluation_metrics import cmc_meanap_fast, cmc, mean_ap
 from .feature_extraction import extract_cnn_feature
 from .utils.meters import AverageMeter
 import numpy as np
+import scipy.io as scio
 
 
 def extract_features(model, data_loader, print_freq=10):
@@ -19,6 +20,10 @@ def extract_features(model, data_loader, print_freq=10):
     labels = OrderedDict()
 
     end = time.time()
+
+    # gal_mat = '/scratch/user/joeychang0204/AI/625_Project/features/feature_val_gallery.mat'
+    # que_mat = '/scratch/user/joeychang0204/AI/625_Project/features/feature_val_query.mat'
+
     for i, (imgs, fnames, pids, _) in enumerate(data_loader):
         data_time.update(time.time() - end)
 
@@ -73,10 +78,12 @@ class Evaluator(object):
 
         # Extract query & gallery features
         features, _ = extract_features(self.model, data_loader)
+        query_names = [name for name, _, _ in query]
         query_ids = [pid for _,pid,_ in query]
         query_cams = [cid for _,_,cid in query]
         gallery_ids = [pid for _,pid,_ in gallery]
         gallery_cams = [cid for _,_,cid in gallery]
+        gallery_names = [name for name, _, _ in gallery]
 
         feat_query = torch.cat([features[f].unsqueeze(0) for f,_,_ in query], 0)
         feat_gallery = torch.cat([features[f].unsqueeze(0) for f,_,_ in gallery], 0)
@@ -97,5 +104,8 @@ class Evaluator(object):
         for k in [1,5,10]:
             print('  top-{:<4}{:12.1%}'.format(k, result_cmc[k - 1]))
         print('{} Mean AP: {:3.1%}'.format(msg, result_meanap))
-
+        results = {'names': query_names, 'features': feat_query.numpy()}
+        scio.savemat('/scratch/user/joeychang0204/AI/625_Project/features/feature_val_query.mat', results)
+        results2 = {'names': gallery_names, 'features': feat_gallery.numpy()}
+        scio.savemat('/scratch/user/joeychang0204/AI/625_Project/features/feature_val_gallery.mat', results2)
         return result_cmc[0], result_meanap

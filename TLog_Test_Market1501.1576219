@@ -1,0 +1,30 @@
+Set os.envirionments from paths...
+----------------------------------
+CPM_PRETRAINED pretrained/pose_iter_440000.caffemodel.pth
+MARKET1501_DATA_ROOT $(pwd)/data/market1501/raw/Market-1501-v15.09.15
+DUKEMTMC_DATA_ROOT $(pwd)/data/dukemtmc/raw/DukeMTMC-reID
+INCEPTION_V1_PRETRAINED pretrained/bvlc_googlenet.caffemodel.pth
+----------------------------------
+done!
+valSet 66666!!! validation dataset loaded
+=> Loaded checkpoint './logs/valSet/tmp/epoch_400.pth.tar'
+Traceback (most recent call last):
+  File "test.py", line 58, in <module>
+    evaluate(parser.parse_args())
+  File "test.py", line 48, in evaluate
+    evaluator.evaluate(dataloader, dataset.query, dataset.gallery)
+  File "/scratch/user/joeychang0204/AI/625_Project/reid/evaluators.py", line 80, in evaluate
+    features, _ = extract_features(self.model, data_loader)
+  File "/scratch/user/joeychang0204/AI/625_Project/reid/evaluators.py", line 27, in extract_features
+    for i, (imgs, fnames, pids, _) in enumerate(data_loader):
+  File "/scratch/user/joeychang0204/AI/venv/lib/python3.5/site-packages/torch-0.4.1-py3.5-linux-x86_64.egg/torch/utils/data/dataloader.py", line 314, in __next__
+    batch = self.collate_fn([self.dataset[i] for i in indices])
+  File "/scratch/user/joeychang0204/AI/venv/lib/python3.5/site-packages/torch-0.4.1-py3.5-linux-x86_64.egg/torch/utils/data/dataloader.py", line 314, in <listcomp>
+    batch = self.collate_fn([self.dataset[i] for i in indices])
+  File "/scratch/user/joeychang0204/AI/625_Project/reid/utils/data/preprocessor.py", line 20, in __getitem__
+    return self._get_single_item(indices)
+  File "/scratch/user/joeychang0204/AI/625_Project/reid/utils/data/preprocessor.py", line 27, in _get_single_item
+    img = Image.open(fpath).convert('RGB')
+  File "/scratch/user/joeychang0204/AI/venv/lib/python3.5/site-packages/PIL/Image.py", line 2609, in open
+    fp = builtins.open(filename, "rb")
+FileNotFoundError: [Errno 2] No such file or directory: 'data/valSet/images/bffa534aa633400b9a5b1ba218aec48b.png'

@@ -4,8 +4,8 @@
 #SBATCH --get-user-env=L             #Replicate login environment
 
 ##NECESSARY JOB SPECIFICATIONS
-#SBATCH --job-name=Test_Market1501_epoch400       #Set the job name to "JobExample5"
-#SBATCH --time=48:00:00              #Set the wall clock limit to 1hr and 30min
+#SBATCH --job-name=val_e400       #Set the job name to "JobExample5"
+#SBATCH --time=1:00:00              #Set the wall clock limit to 1hr and 30min
 #SBATCH --ntasks=28                   #Request 1 task
 #SBATCH --mem=32G                  #Request 2560MB (2.5GB) per node
 #SBATCH --output=TLog_Test_Market1501.%j      #Send stdout/err to "Example5Out.[jobID]"
@@ -33,7 +33,7 @@ export CPM_PRETRAINED=$CPM_PRETRAINED
 source $CONFIGURE_PATH
 
 # Parameters
-STR_PARAM="-d market1501 -e tmp --epoch 400 --batchsize 50 --gpus 1"
-
+#STR_PARAM="-d market1501 -e tmp --epoch 400 --batchsize 50 --gpus 1"
+STR_PARAM="-d valSet -e tmp --epoch 400 --batchsize 50 --gpus 1"
 # Run!
 CUDA_VISIBLE_DEVICES=$GPU_ID $PYTHON test.py $STR_PARAM
