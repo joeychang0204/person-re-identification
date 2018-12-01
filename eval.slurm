@@ -34,7 +34,6 @@ source $CONFIGURE_PATH
 
 # Parameters
 #STR_PARAM="-d market1501 -e tmp --epoch 400 --batchsize 50 --gpus 1"
-#STR_PARAM="-d valSet -e tmp --epoch 400 --batchsize 50 --gpus 1"
 STR_PARAM="-d testSet -e tmp --epoch 400 --batchsize 50 --gpus 1"
 # Run!
 CUDA_VISIBLE_DEVICES=$GPU_ID $PYTHON test.py $STR_PARAM

@@ -37,6 +37,7 @@ def evaluate(args):
     dataset_ = Preprocessor(list(set(dataset.query)|set(dataset.gallery)), root=dataset.images_dir, transform=t)
     dataloader = DataLoader(dataset_, batch_size=batch_size, shuffle=False)
 
+    print("root === ", dataset.images_dir)
     # Load model
     model = models.create(args['arch'], dilation=args['dilation'], use_relu=args['use_relu'], initialize=False).cuda()
     weight_file = osp.join(exp_dir, 'epoch_{}.pth.tar'.format(target_epoch))
@@ -49,10 +50,9 @@ def evaluate(args):
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description="Evaluation")
-    parser.add_argument('-d', '--dataset', type=str, default='market1501')
+    parser.add_argument('-d', '--dataset', type=str, default='testSet')
     parser.add_argument('-e', '--exp', type=str, default='d2_b250')
     parser.add_argument('-b', '--batchsize', type=int, default=50)
     parser.add_argument('--gpus', type=str, default='0')
     parser.add_argument('--epoch', type=int, default=750)
-    
     evaluate(parser.parse_args())

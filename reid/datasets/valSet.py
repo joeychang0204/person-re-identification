@@ -44,5 +44,6 @@ class valSet(Dataset):
     ##########
 
     if verbose:
+      print("WTFZZZZZ")
       print(self.__class__.__name__, "66666!!! validation dataset loaded")
   ########################

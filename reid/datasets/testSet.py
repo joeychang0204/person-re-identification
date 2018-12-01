@@ -2,12 +2,12 @@ from __future__ import print_function, absolute_import
 import os
 import os.path as osp
 import numpy as np
- from ..utils.data import Dataset
+from ..utils.data import Dataset
 from ..utils.osutils import mkdir_if_missing
 from ..utils.serialization import read_json
 from ..utils.serialization import write_json
- class testSet(Dataset):
-   def __init__(self, root, split_id=0, num_val=100, download=False):
+class testSet(Dataset):
+  def __init__(self, root, split_id=0, num_val=100, download=False):
     super(testSet, self).__init__(root, split_id=split_id)
      #if not self._check_integrity():
       #raise RuntimeError("Dataset not found or corrupted. ")
@@ -36,6 +36,6 @@ from ..utils.serialization import write_json
       self.gallery.append((name, int(pid), j))
       j += 1
     ##########
-     if verbose:
+    if verbose:
       print(self.__class__.__name__, "66666!!! test dataset loaded")
   ########################

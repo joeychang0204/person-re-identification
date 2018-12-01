@@ -101,9 +101,9 @@ class Evaluator(object):
         result_meanap = mean_ap(distmat, query_ids, gallery_ids, query_cams, gallery_cams)
 
         print('CMC Scores')
-        for k in [1,5,10]:
-            print('  top-{:<4}{:12.1%}'.format(k, result_cmc[k - 1]))
-        print('{} Mean AP: {:3.1%}'.format(msg, result_meanap))
+        #for k in [1,5,10]:
+            #print('  top-{:<4}{:12.1%}'.format(k, result_cmc[k - 1]))
+        #print('{} Mean AP: {:3.1%}'.format(msg, result_meanap))
         results = {'names': query_names, 'features': feat_query.numpy()}
         #scio.savemat('/scratch/user/joeychang0204/AI/625_Project/features/feature_val_query.mat', results)
         scio.savemat('/scratch/user/joeychang0204/AI/625_Project/features/feature_test_query.mat', results)

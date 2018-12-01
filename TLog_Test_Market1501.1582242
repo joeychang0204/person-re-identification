@@ -1,0 +1,20 @@
+/scratch/user/joeychang0204/AI/625_Project/reid/feature_extraction/cnn.py:12: UserWarning: volatile was removed and now has no effect. Use `with torch.no_grad():` instead.
+  inputs = Variable(inputs, volatile=True)
+Set os.envirionments from paths...
+----------------------------------
+MARKET1501_DATA_ROOT $(pwd)/data/market1501/raw/Market-1501-v15.09.15
+INCEPTION_V1_PRETRAINED pretrained/bvlc_googlenet.caffemodel.pth
+DUKEMTMC_DATA_ROOT $(pwd)/data/dukemtmc/raw/DukeMTMC-reID
+CPM_PRETRAINED pretrained/pose_iter_440000.caffemodel.pth
+----------------------------------
+done!
+valSet
+valSet 66666!!! validation dataset loaded
+=> Loaded checkpoint './logs/testSet/tmp/epoch_400.pth.tar'
+Extract Features: [10/13]	Time 0.872 (0.891)	Data 0.172 (0.189)	
+CMC Scores
+  top-1          91.3%
+  top-5          97.3%
+  top-10         97.3%
+ Mean AP: 81.3%
+test features saved!!!

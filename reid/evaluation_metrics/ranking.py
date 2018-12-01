@@ -75,7 +75,8 @@ def cmc(distmat, query_ids=None, gallery_ids=None,
                 ret[k - j] += delta
         num_valid_queries += 1
     if num_valid_queries == 0:
-        raise RuntimeError("No valid query")
+        return 0    
+    #raise RuntimeError("No valid query")
     return ret.cumsum() / num_valid_queries
 
 
@@ -111,7 +112,8 @@ def mean_ap(distmat, query_ids=None, gallery_ids=None,
         if not np.any(y_true): continue
         aps.append(average_precision_score(y_true, y_score))
     if len(aps) == 0:
-        raise RuntimeError("No valid query")
+        return 0   
+          #raise RuntimeError("No valid query")
     return np.mean(aps)
 
 def cmc_small(distmat, query_ids=None, gallery_ids=None,
