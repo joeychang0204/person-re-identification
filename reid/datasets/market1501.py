@@ -109,14 +109,14 @@ class Market1501(Dataset):
     #gallery_pids, gallery_fnames = register('bounding_box_test')
     #query_pids, query_fnames = register('query')
 
-    gallery_pids, gallery_fnames = register('/scratch/user/joeychang0204/AI/625_Project/data/valSet/gallery/')
-    query_pids, query_fnames = register('/scratch/user/joeychang0204/AI/625_Project/data/valSet/query/')
+    #gallery_pids, gallery_fnames = register('/scratch/user/joeychang0204/AI/625_Project/data/valSet/gallery/')
+    #query_pids, query_fnames = register('/scratch/user/joeychang0204/AI/625_Project/data/valSet/query/')
     
-    print("this is reid/datasets/market1501.py")
-    print("------- query_pids --------")
-    print(query_pids)
-    print("------- query_fnames --------")
-    print(query_fnames)
+   #print("this is reid/datasets/market1501.py")
+   #print("------- query_pids --------")
+    #print(query_pids)
+    #print("------- query_fnames --------")
+    #print(query_fnames)
     assert query_pids <= gallery_pids
     assert trainval_pids.isdisjoint(gallery_pids)
 

@@ -4,11 +4,13 @@ import warnings
 from .market1501 import Market1501
 from .dukemtmc import DukeMTMC
 from .valSet import valSet
+from .testSet import testSet
 
 __factory = {
     'market1501': Market1501,
     'dukemtmc': DukeMTMC,
-    'valSet': valSet
+    'valSet': valSet,
+    'testSet': testSet
 }
 
 

@@ -105,7 +105,10 @@ class Evaluator(object):
             print('  top-{:<4}{:12.1%}'.format(k, result_cmc[k - 1]))
         print('{} Mean AP: {:3.1%}'.format(msg, result_meanap))
         results = {'names': query_names, 'features': feat_query.numpy()}
-        scio.savemat('/scratch/user/joeychang0204/AI/625_Project/features/feature_val_query.mat', results)
+        #scio.savemat('/scratch/user/joeychang0204/AI/625_Project/features/feature_val_query.mat', results)
+        scio.savemat('/scratch/user/joeychang0204/AI/625_Project/features/feature_test_query.mat', results)
         results2 = {'names': gallery_names, 'features': feat_gallery.numpy()}
-        scio.savemat('/scratch/user/joeychang0204/AI/625_Project/features/feature_val_gallery.mat', results2)
+        #scio.savemat('/scratch/user/joeychang0204/AI/625_Project/features/feature_val_gallery.mat', results2)
+        scio.savemat('/scratch/user/joeychang0204/AI/625_Project/features/feature_test_gallery.mat', results2)
+        print("test features saved!!!")
         return result_cmc[0], result_meanap
